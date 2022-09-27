@@ -1,6 +1,11 @@
-function Homepage()
-{
-  return <h1>Homepage</h1>
+import Hero from './Hero';
+
+function Homepage() {
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 }
 
-export default Homepage
+export default Homepage;
