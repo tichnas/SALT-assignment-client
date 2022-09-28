@@ -1,0 +1,11 @@
+.loading {
+  text-align: center;
+  margin: 2rem;
+
+  &__circle {
+    fill: none;
+    stroke: $color-primary;
+    animation: loading-circle 1s linear infinite;
+    transform-origin: center;
+  }
+}

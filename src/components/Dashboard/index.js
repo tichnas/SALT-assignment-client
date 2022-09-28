@@ -2,6 +2,7 @@ import { useState } from 'react';
 import useSWR from 'swr';
 
 import balanceAPI from '../../api/balance';
+import Loading from '../Loading';
 
 // NOTE: Dashboard does NOT follow good coding practices or styling
 function Dashboard() {
@@ -43,7 +44,7 @@ function Dashboard() {
     return (
       <main>
         <section>
-          <h1>Loading</h1>
+          <Loading />
         </section>
       </main>
     );

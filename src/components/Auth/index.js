@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import authAPI from '../../api/auth';
+import Loading from '../Loading';
 
 function Auth() {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ function Auth() {
     }
   };
 
-  const disabled = !data.username || !data.password || loading;
+  const disabled = !data.username || !data.password;
 
   return (
     <main className='auth-container'>
@@ -82,12 +83,16 @@ function Auth() {
             />
           </label>
 
-          <input
-            type='submit'
-            className='auth__field auth__field--submit'
-            value={kind === 'login' ? 'Login' : 'Register'}
-            disabled={disabled}
-          />
+          {loading ? (
+            <Loading />
+          ) : (
+            <input
+              type='submit'
+              className='auth__field auth__field--submit'
+              value={kind === 'login' ? 'Login' : 'Register'}
+              disabled={disabled}
+            />
+          )}
         </form>
 
         <p className='auth__error'>{error}&nbsp;</p>
