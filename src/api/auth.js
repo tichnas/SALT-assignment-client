@@ -50,7 +50,7 @@ const authAPI = {
   },
 
   logout() {
-    localStorage.removeItem('tichnas-employee-token');
+    localStorage.removeItem('tichnas-token');
     delete axios.defaults.headers.common['x-auth-token'];
   },
 };

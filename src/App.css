@@ -32,6 +32,11 @@ body {
 h2 {
   font-size: 5rem; }
 
+input,
+button {
+  font-size: inherit;
+  font-weight: inherit; }
+
 .ml-s {
   margin-left: 1rem !important; }
 
@@ -224,3 +229,53 @@ nav {
     .nav__checkbox:checked ~ .nav__toggle::after {
       top: 0;
       transform: rotate(-135deg); }
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh; }
+
+.auth {
+  margin: 2rem;
+  border: 1px solid #aaa;
+  border-radius: 1rem;
+  width: 50rem;
+  height: 50rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; }
+  .auth__tabs {
+    display: flex; }
+  .auth__tab {
+    flex: 1;
+    border: none;
+    padding: 2rem;
+    font-size: 2rem;
+    border-bottom: 0.5rem solid transparent; }
+    .auth__tab--active {
+      border-bottom-color: #fbaf03; }
+    .auth__tab:not(:first-child) {
+      border-left: 1px solid #aaa; }
+  .auth__form {
+    padding: 6rem;
+    padding-bottom: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column; }
+    @media only screen and (max-width: 25em) {
+      .auth__form {
+        padding: 3rem;
+        padding-bottom: 0; } }
+  .auth__field {
+    display: block;
+    margin-bottom: 2rem; }
+    .auth__field--submit {
+      margin-top: auto;
+      padding: 2rem; }
+    .auth__field input {
+      max-width: 100%; }
+  .auth__error {
+    color: #dc3545;
+    text-align: center;
+    margin-bottom: 1rem; }

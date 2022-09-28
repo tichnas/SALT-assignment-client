@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation, Link } from 'react-router-dom';
 
+import authAPI from '../../api/auth';
+
 import { PAGES } from './constants';
 
 function Navbar() {
   const location = useLocation();
   const [navFixed, setNavFixed] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const isActive = link =>
     link === location.pathname || link + '/' === location.pathname;
@@ -20,6 +23,15 @@ function Navbar() {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setLoggedIn(authAPI.isLoggedIn());
+  }, [location.pathname]);
+
+  const logout = () => {
+    authAPI.logout();
+    window.location.reload();
+  };
 
   return (
     <>
@@ -43,6 +55,18 @@ function Navbar() {
                 </Link>
               </li>
             ))}
+
+            <li>
+              <Link
+                to={loggedIn ? '#' : '/auth'}
+                onClick={loggedIn ? logout : undefined}
+                className={
+                  'nav__link' + (isActive('/auth') ? ' nav__link--active' : '')
+                }
+              >
+                {loggedIn ? 'Logout' : 'Login/Register'}
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

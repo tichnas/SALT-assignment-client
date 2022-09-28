@@ -9,3 +9,9 @@ body {
 h2 {
   font-size: 5rem;
 }
+
+input,
+button {
+  font-size: inherit;
+  font-weight: inherit;
+}
