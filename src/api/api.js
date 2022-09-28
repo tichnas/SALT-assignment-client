@@ -7,6 +7,9 @@ const api = {
   post(url, payload = {}) {
     return axios.post(url, payload.body);
   },
+  put(url, payload = {}) {
+    return axios.put(url, payload.body);
+  },
 };
 
 export default api;
