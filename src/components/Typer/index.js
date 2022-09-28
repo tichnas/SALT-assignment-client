@@ -43,7 +43,7 @@ function Typer({
     }
 
     return () => clearTimeout(timer);
-  }, [sentence, letter, erasing]);
+  }, [sentence, letter, erasing, letterWait, sentenceWait, sentences]);
 
   return (
     <span className={className}>
