@@ -5,7 +5,7 @@ import Hero from './Hero';
 
 function Homepage() {
   return (
-    <main className='mb-m'>
+    <main>
       <Hero />
 
       <section>
